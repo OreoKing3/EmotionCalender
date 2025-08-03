@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Icon Generator</title>
+    <style>
+        body { font-family: Arial, sans-serif; padding: 20px; }
+        .icon { margin: 10px; display: inline-block; }
+        canvas { border: 1px solid #ccc; }
+    </style>
+</head>
+<body>
+    <h1>Emotion Calendar App Icons</h1>
+    <p>Right-click each icon and "Save As" with the filename shown:</p>
+    
+    <div class="icon">
+        <h3>icon-152.png (152x152)</h3>
+        <canvas id="icon152" width="152" height="152"></canvas>
+    </div>
+    
+    <div class="icon">
+        <h3>icon-167.png (167x167)</h3>
+        <canvas id="icon167" width="167" height="167"></canvas>
+    </div>
+    
+    <div class="icon">
+        <h3>icon-180.png (180x180)</h3>
+        <canvas id="icon180" width="180" height="180"></canvas>
+    </div>
+    
+    <div class="icon">
+        <h3>icon-192.png (192x192)</h3>
+        <canvas id="icon192" width="192" height="192"></canvas>
+    </div>
+    
+    <div class="icon">
+        <h3>icon-512.png (512x512)</h3>
+        <canvas id="icon512" width="512" height="512"></canvas>
+    </div>
+
+    <script>
+        function createIcon(canvasId, size) {
+            const canvas = document.getElementById(canvasId);
+            const ctx = canvas.getContext('2d');
+            
+            // Background gradient
+            const gradient = ctx.createLinearGradient(0, 0, size, size);
+            gradient.addColorStop(0, '#667eea');
+            gradient.addColorStop(1, '#764ba2');
+            ctx.fillStyle = gradient;
+            ctx.fillRect(0, 0, size, size);
+            
+            // Heart icon
+            ctx.fillStyle = '#ff6b6b';
+            ctx.font = `${size * 0.4}px Arial`;
+            ctx.textAlign = 'center';
+            ctx.textBaseline = 'middle';
+            ctx.fillText('❤️', size/2, size/2);
+            
+            // App name
+            ctx.fillStyle = 'white';
+            ctx.font = `${size * 0.08}px Arial`;
+            ctx.fillText('Emotion', size/2, size * 0.8);
+            ctx.fillText('Calendar', size/2, size * 0.9);
+        }
+        
+        // Create all icons
+        createIcon('icon152', 152);
+        createIcon('icon167', 167);
+        createIcon('icon180', 180);
+        createIcon('icon192', 192);
+        createIcon('icon512', 512);
+    </script>
+</body>
+</html> 
